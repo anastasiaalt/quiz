@@ -1,2 +1,2 @@
 # quiz
-Anastasia Ruby on Rails Project
+Anastasia's Ruby on Rails Project
