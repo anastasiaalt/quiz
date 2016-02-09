@@ -11,7 +11,7 @@ Option.destroy_all
 Student.destroy_all
 Instructor.destroy_all
 Question.destroy_all
-# Quiz.destroy_all
+Quiz.destroy_all
 
 a1 = Answer.create({name: "Washington, D.C", explanation: "Washington, D.C. became the capital in 1790"})
 a2 = Answer.create({name: "Philadelphia, PA", explanation: "The Constitution was written during the Philadelphia Convention—now known as the Constitutional Convention—which convened from May 25 to September 17, 1787. It was signed on September 17, 1787"})
