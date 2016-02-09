@@ -5,7 +5,9 @@ class CreateInstructors < ActiveRecord::Migration
       t.string :last_name
 
       t.string :username, :null => false
-      t.string :encrypted_password, :null => false
+      t.string :password_digest, :null => false
+
+      t.timestamps    
     end
   end
 end

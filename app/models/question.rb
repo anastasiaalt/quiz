@@ -1,9 +1,10 @@
 class Question < ActiveRecord::Base
   belongs_to :quiz
-  belongs_to :answer
 
-  has_one :instructor, through: :quiz
+  delegate :instructor, to: :quiz
   
-  has_many :students, through: :quiz
+  has_many :options
+
+  has_many :submissions, through: :options
 
 end

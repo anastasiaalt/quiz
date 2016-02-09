@@ -16,64 +16,42 @@ ActiveRecord::Schema.define(version: 20160208231449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers", force: :cascade do |t|
-    t.string  "name",        null: false
-    t.string  "explanation", null: false
-    t.integer "question_id"
-  end
-
   create_table "instructors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "username",           null: false
-    t.string "encrypted_password", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "options", force: :cascade do |t|
-    t.string  "name",        null: false
+    t.string  "name",                        null: false
+    t.boolean "correct",     default: false
     t.integer "question_id"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string  "ask",       null: false
-    t.string  "choice_a",  null: false
-    t.string  "choice_b",  null: false
-    t.string  "choice_c",  null: false
-    t.string  "choice_d",  null: false
+    t.string  "ask",         null: false
+    t.text    "explanation"
     t.integer "quiz_id"
-    t.integer "answer_id"
   end
 
-  create_table "quizes", force: :cascade do |t|
+  create_table "quizzes", force: :cascade do |t|
     t.date    "assigned",      null: false
     t.integer "instructor_id"
-    t.string  "question1"
-    t.string  "question2"
-    t.string  "question3"
-    t.string  "question4"
-    t.string  "question5"
-    t.string  "question6"
-    t.string  "question7"
-    t.string  "question8"
-    t.string  "question9"
-    t.string  "question10"
-    t.string  "question11"
-    t.string  "question12"
-    t.string  "question13"
-    t.string  "question14"
-    t.string  "question15"
-    t.string  "question16"
-    t.string  "question17"
-    t.string  "question18"
-    t.string  "question19"
-    t.string  "question20"
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "first_name",         null: false
-    t.string "last_name",          null: false
-    t.string "username",           null: false
-    t.string "encrypted_password", null: false
+    t.string "first_name",      null: false
+    t.string "last_name",       null: false
+    t.string "username",        null: false
+    t.string "password_digest", null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "option_id"
   end
 
 end

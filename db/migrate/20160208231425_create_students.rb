@@ -5,7 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :last_name, :null => false
 
       t.string :username, :null => false
-      t.string :encrypted_password, :null => false
+      t.string :password_digest, :null => false
     end
   end
 end
