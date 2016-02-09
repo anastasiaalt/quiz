@@ -14,11 +14,14 @@ Question.destroy_all
 Quiz.destroy_all
 
 inst1 = Instructor.create({first_name: "Matt", last_name: "Short", username: "mattshort", password: "1234"})
+
 stud1 = Student.create({first_name: "Anastasia", last_name: "Alt", username: "anastasiaalt", password: "1234"})
 
-q1 = Question.create({ask: "What is the current capital of the United States?", explanation: "Washington, D.C. became the capital in 1790"})
-q2 = Question.create({ask: "Where was the constitution signed?", explanation: "The Constitution was written during the Philadelphia Convention—now known as the Constitutional Convention—which convened from May 25 to September 17, 1787. It was signed on September 17, 1787"})
-q3 = Question.create({ask: "Where did the Pilgrims land?", explanation: "The Pilgrims first landed, however, near the site of modern Provincetown on the tip of Cape Cod in November 1620 before moving to Plymouth"})
+quiz1 = Quiz.create({assigned: Date.parse("Feb 9, 2016"), instructor: inst1})
+
+q1 = Question.create({ask: "What is the current capital of the United States?", explanation: "Washington, D.C. became the capital in 1790", quiz: quiz1})
+q2 = Question.create({ask: "Where was the constitution signed?", explanation: "The Constitution was written during the Philadelphia Convention—now known as the Constitutional Convention—which convened from May 25 to September 17, 1787. It was signed on September 17, 1787", quiz: quiz1})
+q3 = Question.create({ask: "Where did the Pilgrims land?", explanation: "The Pilgrims first landed, however, near the site of modern Provincetown on the tip of Cape Cod in November 1620 before moving to Plymouth", quiz: quiz1})
 
 o1 = Option.create({name: "New York, NY", correct: false, question: q1})
 o2 = Option.create({name: "Miami, FL", correct: false, question: q2})
@@ -36,8 +39,6 @@ o12 = Option.create({name: "Provincetown, MA", correct: false, question: q3})
 s1 = Submission.create({student: stud1, option: o10})
 s2 = Submission.create({student: stud1, option: o11})
 s3 = Submission.create({student: stud1, option: o12})
-
-quiz1 = Quiz.create({assigned: Date.parse("Feb 9, 2016"), instructor: inst1, question: q1, })
 
 
 
