@@ -1,6 +1,4 @@
 class InstructorsController < ApplicationController
-  include SessionsHelper
-
   def new
     @instructor = Instructor.new
   end
@@ -16,9 +14,15 @@ class InstructorsController < ApplicationController
     end
   end
 
+  def profile
+    authenticate!
+    @instructor = current_instructor
+  end
+
   private
 
   def instructor_params
-    params.require(:instructor).permit(:first_name, :last_name, :username, :password, :token)
+    params.require(:instructor).permit(:first_name, :last_name, :username, :password)
   end
+
 end

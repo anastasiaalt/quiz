@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get '/students/profile' => 'students#profile', as: :student_profile
   resources :students, only: [:new, :create, :edit, :update]
 
+  get '/instructors/login' => 'instructors#login'
+  get '/instructors/edit' => 'instructors#edit'
+  get '/instructors/profile' => 'instructors#profile', as: :instructor_profile
+  resources :instructors, only: [:new, :create, :edit, :update]
+
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out
 

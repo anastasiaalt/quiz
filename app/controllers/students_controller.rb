@@ -4,9 +4,6 @@ class StudentsController < ApplicationController
     @cohorts = Cohort.all
   end
 
-  def login
-  end
-
   def create
     @student = Student.new(student_params)
 
