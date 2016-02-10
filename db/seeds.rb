@@ -6,16 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Submission.destroy_all
-Option.destroy_all
-Student.destroy_all
 Instructor.destroy_all
-Question.destroy_all
+Cohort.destroy_all
+Student.destroy_all
 Quiz.destroy_all
+Question.destroy_all
+Option.destroy_all
+Submission.destroy_all
+
 
 inst1 = Instructor.create({first_name: "Matt", last_name: "Short", username: "mattshort", password: "1234"})
 
-stud1 = Student.create({first_name: "Anastasia", last_name: "Alt", username: "anastasiaalt", password: "1234"})
+c1 = Cohort.create({name: "Persephone", instructor: inst1})
+
+stud1 = Student.create({first_name: "Anastasia", last_name: "Alt", username: "anastasiaalt", password: "1234", cohort: c1})
 
 quiz1 = Quiz.create({assigned: Date.parse("Feb 9, 2016"), instructor: inst1})
 

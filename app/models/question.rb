@@ -8,3 +8,6 @@ class Question < ActiveRecord::Base
   has_many :submissions, through: :options
 
 end
+
+
+

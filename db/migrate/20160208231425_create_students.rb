@@ -6,6 +6,8 @@ class CreateStudents < ActiveRecord::Migration
 
       t.string :username, :null => false
       t.string :password_digest, :null => false
+
+      t.references :cohort
     end
   end
 end

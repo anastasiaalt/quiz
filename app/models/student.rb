@@ -6,4 +6,6 @@ class Student < ActiveRecord::Base
 
   # this is like has_many :options, through: :submissions,
   # but it renames student.options to student.chosen_options
+
+  belongs_to :cohort
 end
