@@ -6,6 +6,10 @@
     <%= f.date_select(:assigned, :order => [:month, :day, :year]) %>
   </div>
   <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
     <%= f.label :instructor_id %>
     <%= f.select :instructor_id, Instructor.all.collect {|instructor| [  instructor.first_name, instructor.id]}, {include_blank: false} %>
   </div>
@@ -16,4 +20,4 @@
 <% end %>
 
 <a href="/instructors/profile">Back to Instructor Dashboard</a>
-
+<a href="/quizzes">Quizzes</a>

@@ -1,0 +1,24 @@
+<h3>Quizzes</h3>
+
+<table>
+  <tr>
+    <th>Date Assigned</th>
+    <th>Quiz Name</th>
+    <th>Instructor</th>
+  </tr>
+
+  <% @quizzes.each do |quiz| %>
+  <tr>
+    <td><%= quiz.assigned %></td>
+    <td><%= quiz.title %></td>
+    <td><%= quiz.instructor.first_name %></td>
+    <td>
+      <a href="/quizzes/<%= quiz.id %>">Quiz Details</a>
+    </td>
+  </tr>
+  <% end %>
+
+</table>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/quizzes/new">Create a New Quiz</a>

@@ -1,0 +1,15 @@
+<p>
+  <strong>Date Assigned</strong>
+  <%= @quiz.assigned %>
+</p>
+<p>
+  <strong>Quiz Name</strong>
+  <%= @quiz.title %>
+</p>
+<p>
+  <strong>Instructor</strong>
+  <%= @quiz.instructor.first_name %> <%= @quiz.instructor.last_name %>
+</p>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/quizzes">Quizzes</a>

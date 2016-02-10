@@ -21,7 +21,7 @@ c1 = Cohort.create({name: "Persephone", instructor: inst1})
 
 stud1 = Student.create({first_name: "Anastasia", last_name: "Alt", username: "anastasiaalt", password: "1234", cohort: c1})
 
-quiz1 = Quiz.create({assigned: Date.parse("Feb 9, 2016"), instructor: inst1})
+quiz1 = Quiz.create({assigned: Date.parse("Feb 9, 2016"), title: "US History", instructor: inst1})
 
 q1 = Question.create({ask: "What is the current capital of the United States?", explanation: "Washington, D.C. became the capital in 1790", quiz: quiz1})
 q2 = Question.create({ask: "Where was the constitution signed?", explanation: "The Constitution was written during the Philadelphia Convention—now known as the Constitutional Convention—which convened from May 25 to September 17, 1787. It was signed on September 17, 1787", quiz: quiz1})

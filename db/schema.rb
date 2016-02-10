@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160210125056) do
     t.string   "last_name"
     t.string   "username",        null: false
     t.string   "password_digest", null: false
-    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160210125056) do
 
   create_table "quizzes", force: :cascade do |t|
     t.date    "assigned",      null: false
+    t.string  "title",         null: false
     t.integer "instructor_id"
   end
 
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20160210125056) do
     t.string  "last_name",       null: false
     t.string  "username",        null: false
     t.string  "password_digest", null: false
-    t.string  "token"
     t.integer "cohort_id"
   end
 
