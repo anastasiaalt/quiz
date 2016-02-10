@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get '/students/login' => 'students#login'
+  get '/students/edit' => 'students#edit'
+  get '/students/profile' => 'students#profile', as: :student_profile
+  resources :students, only: [:new, :create, :edit, :update]
+
+  post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy', as: :log_out
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

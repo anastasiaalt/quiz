@@ -8,4 +8,8 @@ class Student < ActiveRecord::Base
   # but it renames student.options to student.chosen_options
 
   belongs_to :cohort
+
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64(nil, false)
+  end
 end
