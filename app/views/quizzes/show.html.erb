@@ -11,5 +11,17 @@
   <%= @quiz.instructor.first_name %> <%= @quiz.instructor.last_name %>
 </p>
 
+<% @quiz.questions.each do |question| %>
+  <p>
+    <strong>Question Description</strong>
+    <%= question.ask %>
+  </p>
+  <p>
+    <strong>Question Explanation</strong>
+    <%= question.explanation %>
+  </p>
+<% end %>
+
+
 <a href="/instructors/profile">Back to Instructor Dashboard</a>
 <a href="/quizzes">Quizzes</a>

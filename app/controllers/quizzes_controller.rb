@@ -6,6 +6,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
+    questions = Question.find_each(params[:quiz_id])
   end
 
   def new
