@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out
 
+  resources :cohorts
+  resources :quizzes do 
+      resources :questions
+      resources :options 
+    end
+  resources :submissions
+  resources :options
+  resources :questions
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
