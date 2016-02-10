@@ -1,0 +1,23 @@
+<h3>New Question</h3>
+
+<%= form_for(@question) do |f| %>
+  <div>
+    <%= f.label :ask %>
+    <%= f.text_field :ask %>
+  </div>
+  <div>
+    <%= f.label :explanation %>
+    <%= f.text_field :explanation %>
+  </div>
+  <div>
+    <%= f.label :quiz_id %>
+    <%= f.select :quiz_id, Quiz.all.collect {|quiz| [  quiz.title, quiz.id]}, {include_blank: false} %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/questions">Questions</a>

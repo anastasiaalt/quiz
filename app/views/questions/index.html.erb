@@ -1,0 +1,23 @@
+<h3>Questions</h3>
+
+<table>
+  <tr>
+    <th>Question Description</th>
+    <th>Quiz Name</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%= question.ask %></td>
+    <td><%= question.quiz.title %></td>
+    <td>
+      <a href="/questions/<%= question.id %>">Question Detail</a>
+    </td>
+  </tr>
+  <% end %>
+
+</table>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/questions/new">Create a New Question</a>
+
