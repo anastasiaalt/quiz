@@ -14,6 +14,11 @@
     <%= f.select :instructor_id, Instructor.all.collect {|instructor| [  instructor.first_name, instructor.id]}, {include_blank: false} %>
   </div>
   <div>
+    <%= fields_for @quiz.questions do |question| %>
+    <%= question.ask %>
+    <% end %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
 
