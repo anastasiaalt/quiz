@@ -1,0 +1,26 @@
+class OptionsController < ApplicationController
+
+  def index
+    @options = Option.all
+  end
+
+  def show
+    @option = Option.find(params[:id])
+  end
+
+  def new
+    @option = Option.new
+  end
+
+  def create
+    @option = Option.create(option_params)
+    redirect_to @option
+  end
+
+  private
+
+  def option_params
+    params.require(:option).permit(:name, :correct, :question_id)
+  end
+
+end

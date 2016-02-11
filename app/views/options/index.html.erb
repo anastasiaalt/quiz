@@ -1,0 +1,23 @@
+<h3>Options</h3>
+
+<table>
+  <tr>
+    <th>Option Description</th>
+    <th>Correct?</th>
+    <th>Associated Question</th>
+  </tr>
+
+  <% @options.each do |option| %>
+  <tr>
+    <td><%= option.name %></td>
+    <td><%= option.correct %></td>
+    <td><%= option.question.ask %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/options/new">Create a New Option</a>
+<a href="/questions/new">Create a New Question</a>
+

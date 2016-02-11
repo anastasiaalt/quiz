@@ -1,0 +1,18 @@
+<p>
+  <strong>Option Description</strong>
+    <%= @option.name %>
+</p>
+<p>
+  <strong>Correct?</strong>
+    <%= @option.correct %>
+</p>
+<p>
+  <strong>Associated Question</strong>
+    <a href="/questions/<%= @option.question.id %>">
+      <%= @option.question.ask %>
+    </a>
+</p>
+
+<a href="/instructors/profile">Back to Instructor Dashboard</a>
+<a href="/options">Back to Options</a>
+<a href="/questions">See All Questions</a>
