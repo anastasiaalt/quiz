@@ -4,8 +4,6 @@
   <tr>
     <th>Question Description</th>
     <th>Quiz Name</th>
-    <th>Details</th>
-    <th>Edit</th>
   </tr>
 
   <% @questions.each do |question| %>
@@ -16,6 +14,7 @@
       <a href="/questions/<%= question.id %>">Details</a>
     </td>
     <td><a href="/questions/<%= question.id %>/edit">Edit</td>
+    <td><%= link_to 'Remove', question, :method=>:delete, :class=>:destroy, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <% end %>
 

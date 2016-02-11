@@ -6,6 +6,7 @@ class OptionsController < ApplicationController
 
   def show
     @option = Option.find(params[:id])
+    @questions = Question.all
   end
 
   def new
@@ -25,6 +26,12 @@ class OptionsController < ApplicationController
     @option = Option.find(params[:id])  
     @option.update(option_params)
     redirect_to @option
+  end
+
+  def destroy
+    @option = Option.find(params[:id])
+    @option.destroy
+    redirect_to options_url
   end
 
   private

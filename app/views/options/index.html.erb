@@ -5,15 +5,15 @@
     <th>Option Description</th>
     <th>Correct?</th>
     <th>Associated Question</th>
-    <th>Edit</th>
   </tr>
 
   <% @options.each do |option| %>
   <tr>
     <td><%= option.name %></td>
     <td><%= option.correct %></td>
-    <td><%= option.question.ask %></td>
+    <td><%= option.question %></td>
     <td><a href="/options/<%= option.id %>/edit">Edit</td>
+    <td><%= link_to 'Remove', option, :method=>:delete, :class=>:destroy, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <% end %>
 
