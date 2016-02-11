@@ -15,6 +15,13 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+
+    5.times do 
+      question = @quiz.questions.build
+      4.times do 
+        question.options.build
+      end
+    end
   end
 
   def create
@@ -37,7 +44,15 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:assigned, :instructor_id, :title)
+    params.require(:quiz).permit(
+      :assigned, :instructor_id, :title,
+      :questions_attributes => [
+        :ask, :explanation, 
+        :options_attributes => [
+          :name, :correct
+        ]
+      ]
+    )
   end
 
 end

@@ -1,8 +1,8 @@
 <h3>New Quiz</h3>
 
-<%= form_for(@quiz) do |f| %>
+<%= form_for @quiz do |f| %>
   <div>
-    <%= f.label :assigned %>
+    <%= f.label :assigned, "Date of Quiz" %>
     <%= f.date_select(:assigned, :order => [:month, :day, :year]) %>
   </div>
   <div>
@@ -14,14 +14,32 @@
     <%= f.select :instructor_id, Instructor.all.collect {|instructor| [  instructor.first_name, instructor.id]}, {include_blank: false} %>
   </div>
   <div>
-    <%= fields_for @quiz.questions do |question| %>
-    <%= question.ask %>
+    <%= f.fields_for :questions do |q| %>
+      <fieldset>
+        <%= q.label :ask, "Question Content" %><br/>
+        <%= q.text_area :ask %>
+        <br/>
+        <%= q.label :explanation, "Explanation" %><br/>
+        <%= q.text_area :explanation %> 
+
+        <%= q.fields_for :options do |o| %>
+        <hr/>
+          <div>
+            <%= o.label :name, "Option content" %>
+            <%= o.text_field :name %>
+          </div>
+          <div>
+            <%= o.label :correct, "This is correct" %>
+            <%= o.check_box :correct %>
+          </div>
+        <% end %>
+
+      </fieldset>
     <% end %>
   </div>
   <div>
     <%= f.submit %>
   </div>
-
 <% end %>
 
 <a href="/instructors/profile">Back to Instructor Dashboard</a>
