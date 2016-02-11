@@ -17,16 +17,19 @@
     <%= question.ask %>
   </p>
   <p>
+    <strong>Choices</strong> 
+    <ul>
+      <% question.options.each do |option| %>
+        <li>
+          <%= option.name %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
     <strong>Question Explanation</strong>
     <%= question.explanation %>
   </p>
-  <ul>
-    <% question.options.each do |option| %>
-      <li>
-        <%= option.name %>
-      </li>
-    <% end %>
-  </ul>
 <% end %>
 
 
