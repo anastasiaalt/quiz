@@ -1,14 +1,16 @@
 <p>
   <strong>Question Description</strong>
-  <%= @question.ask %>
+    <%= @question.ask %>
 </p>
 <p>
   <strong>Question Explanation</strong>
-  <%= @question.explanation %>
+    <%= @question.explanation %>
 </p>
 <p>
   <strong>Quiz Name</strong>
-  <%= @question.quiz.title %>
+    <a href="/quizzes/<%= @question.quiz.id %>">
+      <%= @question.quiz.title %>
+    </a>
 </p>
 
 <a href="/instructors/profile">Back to Instructor Dashboard</a>
