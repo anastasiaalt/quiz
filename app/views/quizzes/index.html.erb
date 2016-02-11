@@ -5,6 +5,8 @@
     <th>Date Assigned</th>
     <th>Quiz Name</th>
     <th>Instructor</th>
+    <th>Details</th>
+    <th>Edit</th>
   </tr>
 
   <% @quizzes.each do |quiz| %>
@@ -13,8 +15,9 @@
     <td><%= quiz.title %></td>
     <td><%= quiz.instructor.first_name %></td>
     <td>
-      <a href="/quizzes/<%= quiz.id %>">Quiz Details</a>
+      <a href="/quizzes/<%= quiz.id %>">Details</a>
     </td>
+    <td><a href="/quizzes/<%= quiz.id %>/edit">Edit</td>
   </tr>
   <% end %>
 

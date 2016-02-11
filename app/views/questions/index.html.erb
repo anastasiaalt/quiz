@@ -4,6 +4,8 @@
   <tr>
     <th>Question Description</th>
     <th>Quiz Name</th>
+    <th>Details</th>
+    <th>Edit</th>
   </tr>
 
   <% @questions.each do |question| %>
@@ -11,8 +13,9 @@
     <td><%= question.ask %></td>
     <td><%= question.quiz.title %></td>
     <td>
-      <a href="/questions/<%= question.id %>">Question Details</a>
+      <a href="/questions/<%= question.id %>">Details</a>
     </td>
+    <td><a href="/questions/<%= question.id %>/edit">Edit</td>
   </tr>
   <% end %>
 

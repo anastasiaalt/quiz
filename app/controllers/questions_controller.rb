@@ -8,8 +8,18 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
+  end
+
+  def update
+    @question = Question.find(params[:id])  
+    @question.update(question_params)
+    redirect_to @question
   end
 
   def create
