@@ -5,6 +5,7 @@
     <th>Option Description</th>
     <th>Correct?</th>
     <th>Associated Question</th>
+    <th>Edit</th>
   </tr>
 
   <% @options.each do |option| %>
@@ -12,6 +13,7 @@
     <td><%= option.name %></td>
     <td><%= option.correct %></td>
     <td><%= option.question.ask %></td>
+    <td><a href="/options/<%= option.id %>">Edit</td>
   </tr>
   <% end %>
 
