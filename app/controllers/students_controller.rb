@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
   def profile
     authenticate!
     @student = current_student
+    @expired = Quiz.where("assigned < ? ", Date.today)
   end
 
   private

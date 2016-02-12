@@ -1,10 +1,12 @@
 <h2>Welcome Back <%= @student.first_name %></h2>
   <a href="/submissions/new">Take A Quiz</a>
 
-
-
-
-
+<h2>Previous Quizzes</h2>
+  <% @expired.each do |quiz| %>
+    <h3>
+      <%= link_to quiz.assigned, quiz %>
+    </h3>
+  <% end %>
 
 
 <div>
