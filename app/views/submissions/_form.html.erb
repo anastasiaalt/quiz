@@ -1,0 +1,38 @@
+<%= form_for @submission do |f| %>
+  <div>
+    <%= f.label :student_id, 'Student name' %>
+    <%= f.select :student_id, Student.all.collect {|student| [  student.username, student.id]}, {include_blank: false} %>
+  </div>
+  <div>
+    <%= f.fields_for :quizzes do |quiz| %>
+      <fieldset>
+        <%= quiz.label :title, "Which quiz are you taking?" %><br/>
+        <%= quiz.select :title, Quiz.all.collect {|q| [  q.title, q.id]}, {include_blank: false} %>
+        <br/>
+        <%= quiz.fields_for :questions do |question| %>
+        <hr/>
+          <div>
+            <%= question.label :ask, "Select a question" %>
+            <%= question.select :ask, Question.all.collect {|q| [  q.ask, q.id]}, {include_blank: false} %>
+          </div>
+          <br/>
+          <%= question.fields_for :options do |option| %>
+              <div>
+                <%= option.label :name, "Select an answer" %>
+                <%= option.select :name, Option.all.collect {|o| [  o.name, o.id]}, {include_blank: false} %>
+              </div>
+              <div>
+                <%= option.label :correct, "Select the correct option" %>
+                <%= option.radio_button :correct %>
+              </div>
+          <% end %>
+
+      </fieldset>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit 'Submit your answer' %>
+  </div>
+
+<% end %>
+
