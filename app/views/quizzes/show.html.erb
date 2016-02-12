@@ -11,7 +11,7 @@
   <%= @quiz.instructor.first_name %> <%= @quiz.instructor.last_name %>
 </p>
 
-<% @quiz.questions.each do |question| %>
+<% @quiz.questions.order(:id).each do |question| %>
   <p>
     <strong>Question Description</strong>
     <%= question.ask %>

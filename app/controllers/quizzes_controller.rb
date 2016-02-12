@@ -47,9 +47,9 @@ class QuizzesController < ApplicationController
     params.require(:quiz).permit(
       :assigned, :instructor_id, :title,
       :questions_attributes => [
-        :ask, :explanation, 
+        :ask, :explanation, :id,
         :options_attributes => [
-          :name, :correct
+          :name, :correct, :id
         ]
       ]
     )
